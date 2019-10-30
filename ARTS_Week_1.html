@@ -1,0 +1,589 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>ARTS Week # 1 </title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="01349e7d-941a-4e69-ac2b-d0a414984947" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/nasa_earth_grid.jpg" style="object-position:center 42.17999999999999%"/><h1 class="page-title">ARTS Week # 1 </h1></header><div class="page-body"><p id="0a0764d6-20f0-4b7f-8205-706f4acaaf4e" class="">Start Date: 10/26/2019</p><p id="4734c9dc-9aec-4f95-be33-c3742ae5f91a" class="">Completion Date: 10/29/2019</p><hr id="fdfce57c-c6cf-493c-83ae-a7fc7f181d0f"/><nav id="a11a639a-97f6-405c-a30a-36a17ecf897e" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#f936bf97-6b84-4138-8b9c-220f6aebc257">Algorithm</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#80f9e908-d60d-4bb8-b871-d1fcea1fbb83">Algorithm questions</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#05717725-3cb2-40da-96e6-73f77d17d878">Solve</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e4d5adcb-f297-4c79-b862-ec3996f2f90a">Review</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ce27e478-0853-4995-9e22-bcec7592047b">Article</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#04df14aa-ddc8-48fd-9465-9e5be3ac268a">Tip</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b3a6bd2b-fc80-4519-82cd-97e04cd9e866">Share</a></div></nav><h1 id="f936bf97-6b84-4138-8b9c-220f6aebc257" class="">Algorithm</h1><p id="4b988b4b-0b6b-4248-826f-e25d788f9410" class="">每周至少做一个 leetcode 的算法题</p><hr id="1d5e7537-9644-402a-81fb-52ddfcef2e31"/><h2 id="80f9e908-d60d-4bb8-b871-d1fcea1fbb83" class="">Algorithm questions</h2><p id="c7dd1626-89d9-4b1d-8bf7-76e6454c9df5" class="">Question</p><p id="46e55da1-bdc5-497c-a784-8d9f39e94adf" class=""><strong>#724 Find Pivot Index</strong></p><p id="f696a609-484c-4dfc-9332-daab5499addd" class="">Given an array of integers <code>nums</code>, write a method that returns the &quot;pivot&quot; index of this array.</p><p id="a177ae8f-807e-49f5-a6f0-8aa2eefa432f" class="">We define the pivot index as the index where the sum of the numbers to the left of the index is equal to the sum of the numbers to the right of the index.</p><p id="6b21c168-bf54-44ff-9486-6c9daaa5f21e" class="">If no such index exists, we should return -1. If there are multiple pivot indexes, you should return the left-most pivot index.</p><p id="796c0252-8d24-474c-9b9b-85e1f0be05de" class=""><strong>Example 1:</strong></p><pre id="da7494d8-3782-436a-bd5e-a15b5707b6be" class="code"><code>Input:Output:Explanation:</code></pre><p id="b29083f0-6602-4045-9e6c-e99ed553a5bf" class=""><strong>Example 2:</strong></p><pre id="2e973332-0fc4-4729-8693-f79820cd7951" class="code"><code>Input:Output:Explanation:</code></pre><p id="2c7075fa-7f24-483a-b1ac-9871ca38a2d5" class=""><strong>Note:</strong></p><ul id="a00293d5-122f-49f9-b920-98e1bdbac653" class="bulleted-list"><li>The length of <code>nums</code> will be in the range <code>[0, 10000]</code>.</li></ul><ul id="302282d1-f156-4978-bc43-5ff34bbcecc3" class="bulleted-list"><li>Each element <code>nums[i]</code> will be an integer in the range <code>[-1000, 1000]</code>.</li></ul><h2 id="05717725-3cb2-40da-96e6-73f77d17d878" class="">Solve</h2><pre id="2f52e757-c203-4653-9b9f-8498222176e9" class="code"><code>class Solution {
+    public int pivotIndex(int[] nums) {
+        int sum = 0;
+        for (int item : nums) {
+            sum += item;
+        }
+        
+        int leftSum = 0;
+        for (int i = 0; i &lt; nums.length; i++) {
+            if (leftSum == sum - leftSum - nums[i]) {
+                return i;
+            } else {
+                leftSum += nums[i];
+            }
+        }
+        return -1;
+    }
+}</code></pre><h1 id="e4d5adcb-f297-4c79-b862-ec3996f2f90a" class="">Review</h1><p id="4d2a832c-44b6-413c-a42a-d86e3b7d276a" class="">阅读并点评至少一篇英文技术文章</p><hr id="2db76437-5337-4386-83c5-ca0ac5d9e568"/><h2 id="ce27e478-0853-4995-9e22-bcec7592047b" class="">Article</h2><figure id="eeac3213-9647-4e2c-ada1-ff8d4c4cae71"><div class="bookmark source"><a href="https://www.divio.com/blog/documentation/">What nobody tells you about documentation</a><br/><a class="bookmark-href" href="https://www.divio.com/blog/documentation/">https://www.divio.com/blog/documentation/</a></div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="36b6ee56-ce52-4e8d-8129-0c112c516b35"><div style="font-size:1.5em"><span class="icon">📝</span></div><div style="width:100%">This article purposed a software document structure, it contains four section: tutorials, how-to guides, explanation and reference.
+<code><strong>Tutorial</strong></code> should be reliable, repeatable, provide result immediately and provide the minimum necessary explanation. This is learning-oriented doc which for newcomers.
+<strong><code>How-to guide</code></strong> aims to help reader solve a real-world problem. A how-to guide should not explain things and it doesn&#x27;t need to cover everything. How-to guide should also allow flexibility because user might have a slightly different use case.
+<code><strong>Explanation</strong></code> is for understanding. It describes at a high level. It should contains background and context, alternatives and opinions.
+<strong><code>Reference</code></strong> is information-oriented and concise, which covers key classes, functions, APIs and etc. This acts as technical references. Reference doc should structure the same as code, be consistent and accurate (up-to-date).
+
+Reference doc probably is the most time consuming part. How to make sure the doc is up-to-date?
+This structure seems make sense for software documents. But what is ideal structure for project / design doc?</div></figure><h1 id="04df14aa-ddc8-48fd-9465-9e5be3ac268a" class="">Tip</h1><p id="982ee396-0a71-4d51-8772-d6380dbd1aff" class="">学习至少一个技术技巧</p><hr id="9b85ac12-ce16-485d-a6c1-8fb01302232f"/><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1593b328-08bd-4a80-b65c-9c9ae5e21681"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Whenever possible, you should avoid using String , because it is poor substitutes for other value types, or aggregate types, enum or capacity types.  —— Effective Java (Item 62)</strong></div></figure><h1 id="b3a6bd2b-fc80-4519-82cd-97e04cd9e866" class="">Share</h1><p id="610b4ea2-3684-4540-8383-e63198cda981" class="">分享一篇有观点和思考的技术文章</p><hr id="722fd82d-d8a6-46bc-9c34-e28fde1350b7"/><figure id="94ee6af9-1523-4033-a676-fc113bab31d4"><div class="bookmark source"><a href="https://spectrum.ieee.org/aerospace/aviation/how-the-boeing-737-max-disaster-looks-to-a-software-developer">Full Page Reload</a><br/><a class="bookmark-href" href="https://spectrum.ieee.org/aerospace/aviation/how-the-boeing-737-max-disaster-looks-to-a-software-developer">https://spectrum.ieee.org/aerospace/aviation/how-the-boeing-737-max-disaster-looks-to-a-software-developer</a></div></figure></div></article></body></html>
